@@ -10,8 +10,10 @@ import com.bumptech.glide.Glide
 import com.example.firestorepoc.R
 import com.example.firestorepoc.model.ProductList
 
-class CatalogListAdapter(private val data: List<ProductList.Product>) :
-    RecyclerView.Adapter<CatalogListAdapter.ViewHolder>() {
+class PDPListAdapter(
+    private val data: List<ProductList.Product>,
+    private val productClickListener: ProductClickListener
+) : RecyclerView.Adapter<PDPListAdapter.ViewHolder>() {
 
     companion object {
         private const val URL_PREFIX = "https:"
@@ -21,15 +23,18 @@ class CatalogListAdapter(private val data: List<ProductList.Product>) :
         return data.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PDPListAdapter.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.list_product, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CatalogListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PDPListAdapter.ViewHolder, position: Int) {
         val product = data[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            productClickListener.onProductClicked(holder.adapterPosition, data)
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -54,4 +59,6 @@ class CatalogListAdapter(private val data: List<ProductList.Product>) :
             }
         }
     }
+
+
 }

@@ -30,15 +30,19 @@ class MainActivity : AppCompatActivity() {
 
             CurrentFragmentViewModel.CurrentFragment.FRAGMENT_PDP -> showPDPFragment()
 
-            CurrentFragmentViewModel.CurrentFragment.FRAGMENT_DESC -> showProducDescriptionFragment()
+            CurrentFragmentViewModel.CurrentFragment.FRAGMENT_DESC -> showProductDescriptionFragment()
         }
     }
 
     private fun showPDPFragment() {
-
+        val pdpFragment = PDPFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, pdpFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
-    private fun showProducDescriptionFragment() {
+    private fun showProductDescriptionFragment() {
         val productDescriptionFragment = ProductDescriptionFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, productDescriptionFragment)

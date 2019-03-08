@@ -10,17 +10,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.firestorepoc.R
 import com.example.firestorepoc.model.ProductList
+import com.example.firestorepoc.viewmodel.CurrentFragmentViewModel
 import com.example.firestorepoc.viewmodel.DataViewModel
 import kotlinx.android.synthetic.main.fragment_catalog.*
 
-
-class CatalogFragment : Fragment() {
+class PDPFragment : Fragment(), ProductClickListener {
 
     private lateinit var dataViewModel: DataViewModel
+    private lateinit var currentFragmentViewModel: CurrentFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataViewModel = ViewModelProviders.of(this).get(DataViewModel::class.java)
+        currentFragmentViewModel = ViewModelProviders.of(this).get(CurrentFragmentViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,7 +31,7 @@ class CatalogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataViewModel.getCatalogDataLiveData().observe(this, Observer {
+        dataViewModel.getPDPDataLiveData().observe(this, Observer {
             loadData(it)
         })
     }
@@ -40,7 +42,12 @@ class CatalogFragment : Fragment() {
         catalog_recycler_view?.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
-            adapter = CatalogListAdapter(it)
+            adapter = PDPListAdapter(it, this@PDPFragment)
         }
     }
+
+    override fun onProductClicked(position: Int, product: List<ProductList.Product>) {
+        currentFragmentViewModel.setCurrentFragmentLiveData(CurrentFragmentViewModel.CurrentFragment.FRAGMENT_DESC)
+    }
+
 }
