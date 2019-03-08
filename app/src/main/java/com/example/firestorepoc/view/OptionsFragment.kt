@@ -35,14 +35,6 @@ class OptionsFragment : Fragment() {
         view.findViewById<Button>(R.id.button_pdp).setOnClickListener {
             showPdP()
         }
-
-        view.findViewById<Button>(R.id.button_offers).setOnClickListener {
-            showHolidayOffers()
-        }
-    }
-
-    private fun showHolidayOffers() {
-        Log.d(TAG, " ====> Show Holiday Offers ")
     }
 
     private fun showPdP() {
