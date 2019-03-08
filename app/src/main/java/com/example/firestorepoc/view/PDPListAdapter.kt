@@ -1,6 +1,7 @@
 package com.example.firestorepoc.view
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.firestorepoc.R
-import com.example.firestorepoc.model.ProductList
+import com.example.firestorepoc.model.PDPList
 
 class PDPListAdapter(
-    private val data: List<ProductList.Product>,
+    private val data: List<PDPList.Product>,
     private val productClickListener: ProductClickListener
 ) : RecyclerView.Adapter<PDPListAdapter.ViewHolder>() {
 
@@ -43,7 +44,7 @@ class PDPListAdapter(
         private val productPrice = itemView.findViewById<TextView>(R.id.product_price)
         private val productInStock = itemView.findViewById<TextView>(R.id.product_in_stock)
 
-        fun bind(product: ProductList.Product) {
+        fun bind(product: PDPList.Product) {
             Glide.with(productImage.context)
                 .load(URL_PREFIX + product.listImage)
                 .into(productImage)

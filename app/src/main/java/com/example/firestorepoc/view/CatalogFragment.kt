@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.firestorepoc.R
-import com.example.firestorepoc.model.ProductList
+import com.example.firestorepoc.model.CatalogList
 import com.example.firestorepoc.viewmodel.DataViewModel
 import kotlinx.android.synthetic.main.fragment_catalog.*
 
@@ -34,7 +34,7 @@ class CatalogFragment : Fragment() {
         })
     }
 
-    private fun loadData(it: List<ProductList.Product>?) {
+    private fun loadData(it: List<CatalogList.Product>?) {
         if (it == null) return
 
         catalog_recycler_view?.apply {

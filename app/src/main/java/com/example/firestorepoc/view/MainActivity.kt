@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         val optionsFragment = OptionsFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, optionsFragment)
-            .addToBackStack(null)
             .commit()
     }
 

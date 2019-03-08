@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.firestorepoc.R
-import com.example.firestorepoc.model.ProductList
+import com.example.firestorepoc.model.CatalogList
 
-class CatalogListAdapter(private val data: List<ProductList.Product>) :
+class CatalogListAdapter(private val data: List<CatalogList.Product>) :
     RecyclerView.Adapter<CatalogListAdapter.ViewHolder>() {
 
     companion object {
@@ -38,14 +38,14 @@ class CatalogListAdapter(private val data: List<ProductList.Product>) :
         private val productPrice = itemView.findViewById<TextView>(R.id.product_price)
         private val productInStock = itemView.findViewById<TextView>(R.id.product_in_stock)
 
-        fun bind(product: ProductList.Product) {
+        fun bind(catalog: CatalogList.Product) {
             Glide.with(productImage.context)
-                .load(URL_PREFIX + product.listImage)
+                .load(URL_PREFIX + catalog.listImage)
                 .into(productImage)
 
-            productName.text = product.productName
-            productPrice.text = "$ ${product.price}"
-            if (product.inStock.equals("inStock")) {
+            productName.text = catalog.productName
+            productPrice.text = "$ ${catalog.price}"
+            if (catalog.inStock.equals("inStock")) {
                 productInStock.text = "In Stock"
                 productInStock.setTextColor(productInStock.resources.getColor(R.color.colorInStock))
             } else {

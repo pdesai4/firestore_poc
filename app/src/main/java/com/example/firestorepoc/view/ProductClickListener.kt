@@ -1,7 +1,7 @@
 package com.example.firestorepoc.view
 
-import com.example.firestorepoc.model.ProductList
+import com.example.firestorepoc.model.PDPList
 
 interface ProductClickListener {
-    fun onProductClicked(position: Int, product: List<ProductList.Product>)
+    fun onProductClicked(position: Int, products: List<PDPList.Product>)
 }

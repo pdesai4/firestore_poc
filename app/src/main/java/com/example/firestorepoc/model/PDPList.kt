@@ -2,8 +2,7 @@ package com.example.firestorepoc.model
 
 import com.google.firebase.firestore.QueryDocumentSnapshot
 
-
-class ProductList(snapshot: QueryDocumentSnapshot) {
+class PDPList(snapshot: QueryDocumentSnapshot) {
     private var productMap = HashMap<String, Product>()
 
     init {
@@ -16,6 +15,7 @@ class ProductList(snapshot: QueryDocumentSnapshot) {
         var price: String? = null
         var productName: String? = null
         var inStock: String? = null
+        var shortDescription: String? = null
 
         constructor(data: MutableMap<String, Any>) : this() {
             productId = data["productId"].toString()
@@ -23,6 +23,7 @@ class ProductList(snapshot: QueryDocumentSnapshot) {
             listImage = data["listImage"].toString()
             inStock = (data["onlineInventory"] as Map<*, *>)["status"].toString()
             price = ((data["onlinePricing"] as Map<*, *>)["finalPrice"] as Map<*, *>)["currencyAmount"].toString()
+            shortDescription = data["shortDescription"].toString()
         }
     }
 }
