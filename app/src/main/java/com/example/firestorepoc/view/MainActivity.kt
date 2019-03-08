@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.example.database.MyDatabase
 import com.example.firestorepoc.R
 import com.example.firestorepoc.viewmodel.CurrentFragmentViewModel
 
@@ -18,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         currentFragmentViewModel.getCurrentFragmentLiveData().observe(this, Observer {
             loadFragment(it)
         })
-
-        MyDatabase().accessDB()
     }
 
     private fun loadFragment(it: CurrentFragmentViewModel.CurrentFragment?) {

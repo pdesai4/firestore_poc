@@ -8,4 +8,5 @@
     <string name="product_price">Product Price</string>
     <string name="description">Description</string>
     <string name="in_stock">In Stock</string>
+    <string name="access_other_db">Access Other DB</string>
 </resources>

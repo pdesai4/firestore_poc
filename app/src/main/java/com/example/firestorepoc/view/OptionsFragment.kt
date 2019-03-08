@@ -9,12 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.database.MyDatabase
 import com.example.firestorepoc.R
 import com.example.firestorepoc.viewmodel.CurrentFragmentViewModel
 
 class OptionsFragment : Fragment() {
 
-    private val TAG = "PIYU"
+    private val TAG = "TAG"
     private lateinit var currentFragmentViewModel: CurrentFragmentViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,6 +35,10 @@ class OptionsFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_pdp).setOnClickListener {
             showPdP()
+        }
+
+        view.findViewById<Button>(R.id.button_accessDb).setOnClickListener {
+            MyDatabase().accessDB()
         }
     }
 
