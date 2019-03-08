@@ -14,9 +14,9 @@ class Application : Application() {
         //FirebaseApp.initializeApp(this)
 
         val options = FirebaseOptions.Builder()
-            .setApplicationId("1:35893953286:android:40b697a145942a08") // Required for Analytics.
-            .setApiKey("AIzaSyBGGhKzuvBjv9wqCwr-vOXN2UMXWykX-xA") // Required for Auth.
-            .setDatabaseUrl("https://firestonepoc.firebaseio.com") // Required for RTDB.
+            .setApplicationId("1:536440039778:android:6b90121ef79d0181") // Required for Analytics.
+            .setApiKey("AIzaSyDJ-vC4JyQdMbHLKkvuiyDjc27tFtrdrdU") // Required for Auth.
+            .setDatabaseUrl("https://fir-database-af8c5.firebaseio.com") // Required for RTDB.
             .build()
 
         FirebaseApp.initializeApp(this, options, "secondary")
